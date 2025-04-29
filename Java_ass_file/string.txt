@@ -1,0 +1,162 @@
+String are used as a datatype in the java, its is used as class
+
+* In a string direct assignment can possible
+* Strings are immutable in nature.
+
+
+# string and stringbuffer.
+Strings are immutable in nature but, stringbuffer is  mutable in nature.
+
+in stringbuffer 
+        sb.append("indore");
+
+
+        SCP(string constant pull)
+        String s1 = new Strign("Hello");
+        Heap    %%     SCP
+        Whenever we assign a same input of strign by changing its name it always points the same existing data, it doesn't create a new memory.
+
+Threading: is used for something that is gonna be used in the java 
+
+KaranXNandkishore01: create a short notes by point to point to remember.
+
+GitHub Copilot: ### Short Notes on Exception Handling in Java:
+
+1. **Exception Handling Basics**:
+   - Exception handling ensures the program continues execution even after an error occurs.
+   - Use `try`, `catch`, and `finally` blocks to handle exceptions.
+
+2. **Types of Exceptions**:
+   - **Checked Exceptions**: Must be declared or handled (e.g., `IOException`, `SQLException`).
+   - **Unchecked Exceptions**: Occur at runtime (e.g., `ArithmeticException`, `NullPointerException`).
+
+3. **Keywords**:
+   - **`throw`**: Used to explicitly throw an exception.
+   - **`throws`**: Declares exceptions a method might throw.
+
+4. **Common Exception Classes**:
+   - `IOException`: Issues during input/output operations.
+   - `ArithmeticException`: Division by zero or other math errors.
+   - `NullPointerException`: Accessing an object that is `null`.
+
+5. **`finally` Block**:
+   - Always executes, regardless of whether an exception is thrown or caught.
+   - Used for cleanup operations (e.g., closing files or releasing resources).
+
+6. **Custom Exceptions**:
+   - You can create your own exceptions by extending the `Exception` class.
+   - Example:
+     ```java
+     throw new Exception("Custom exception message");
+     ```
+
+7. **Nested Try-Catch**:
+   - You can nest `try-catch` blocks for handling specific exceptions at different levels.
+
+8. **IOException**:
+   - A checked exception in the `java.io` package.
+   - Occurs during file handling, network communication, or other I/O operations.
+
+9. **Best Practices**:
+   - Always handle exceptions gracefully.
+   - Avoid catching generic `Exception` unless necessary.
+   - Use meaningful messages in custom exceptions.
+
+Let me know if you need further clarification!
+
+# 2D array works on the basis of row and column like :
+         int a[][]=new int[3][3];
+            for(i=o; i<3; i++){
+               for(j=0; j<j; j++){
+
+               }
+            }
+There are 9 positions are here we have and internally.
+whenever we need to get the value of a11
+
+Lecture 4
+
+//Synchronise is used to control the access of multiple threads to a shared resource. It is a way to prevent thread interference and memory consistency errors.
+// the o/s provides the time of execution.
+//     // Synchronization is a mechanism that ensures that only one thread can access a resource at a time.
+// #One-by-one execution is known as mutual exclusion.
+// when thread is synchronized, it is not possible to access the resource by other threads.
+
+// The drawbacks of the synchronization are:
+// 1) the performance of the application is reduced.
+// 2) the application may be blocked if a thread is waiting for a resource that is not available.
+// 3) the application may be deadlocked if two threads are waiting for each other to release a resource.
+// 4) the application may be starved if a thread is waiting for a resource that is not available for a long time.
+
+//WAP for two threads and with two synchronise methods?
+// some methods of thread class are:	
+// thread currentThread();
+// void setPriority(int x) max 1 to 10;
+// int getPermission();
+// void setName(String name);
+// String getNameread:
+// boolean isAlive();
+// void start();
+// url = https://docs.oracle.com/javase/8/docs/api/
+
+
+class ABC {
+    synchronized void m1() {
+        System.out.println("I'M M1");
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    synchronized void m2() {
+        System.out.println("I'M M2");
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+
+class TH1 extends Thread {
+    ABC a2;
+
+    TH1(ABC a2) {
+        this.a2 = a2;
+    }
+
+    public void run() {
+        while (true) {
+            a2.m1();
+        }
+    }
+}
+
+class TH2 extends Thread {
+    ABC a2;
+
+    TH2(ABC a2) {
+        this.a2 = a2;
+    }
+
+    public void run() {
+        while (true) {
+            a2.m2();
+        }
+    }
+}
+
+class DThreadDemo {
+    public static void main(String args[]) {
+        ABC ab = new ABC();
+        TH1 t1 = new TH1(ab);
+        TH2 t2 = new TH2(ab);
+        t1.start();
+        t2.start();
+    }
+}
+// deadlock can be avoided by using the following methods:
+//if a synchronized method of a class will not invoke another synchronized method of the same class, then the deadlock will not occur.
+
